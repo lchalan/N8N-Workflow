@@ -87,7 +87,7 @@ export default function TodoAppExecutable() {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>To‑Do Minimal</h1>
+      <h1 style={styles.title}>To-Do Minimal</h1>
 
       <div style={styles.inputRow}>
         <input
@@ -116,7 +116,7 @@ export default function TodoAppExecutable() {
               <input
                 value={editingText}
                 onChange={e => setEditingText(e.target.value)}
-                onKeyDown={(e) => onEditKeyDown(e, task.id)}
+                onKeyDown={e => onEditKeyDown(e, task.id)}
                 onBlur={() => saveEdit(task.id)}
                 autoFocus
                 style={styles.editInput}
@@ -127,26 +127,26 @@ export default function TodoAppExecutable() {
                 <span
                   onDoubleClick={() => startEdit(task)}
                   tabIndex={0}
-                  onKeyDown={(e) => { if (e.key === 'Enter') startEdit(task); }}
+                  onKeyDown={e => { if (e.key === 'Enter') startEdit(task); }}
                   style={styles.taskText}
                   title="Double-cliquer ou appuyer Entrée pour éditer"
                 >
                   {task.text}
                 </span>
                 <div style={styles.itemButtons}>
-                  <button onClick={() => startEdit(task)} style={styles.smallButton} aria-label={`Éditer ${task.text}`}>✎</button>
-                  <button onClick={() => deleteTask(task.id)} style={styles.smallButton} aria-label={`Supprimer ${task.text}`}>🗑</button>
+                  <button onClick={() => startEdit(task)} style={styles.smallButton} aria-label={`Éditer ${task.text}`}>✏️</button>
+                  <button onClick={() => deleteTask(task.id)} style={styles.smallButton} aria-label={`Supprimer ${task.text}`}>🗑️</button>
                 </div>
               </div>
             )}
           </li>
         ))}
         {tasks.length === 0 && (
-          <li style={styles.empty}>Aucune tâche — ajoute la première !</li>
+          <li style={styles.empty}>Aucune tâche 💡 ajoute la première !</li>
         )}
       </ul>
 
-      <footer style={styles.footer}>Version minimale — stockage local (localStorage)</footer>
+      <footer style={styles.footer}>Version minimale ⚡ stockage local (localStorage)</footer>
     </div>
   );
 }
@@ -161,7 +161,7 @@ const styles = {
     borderRadius: 6,
     background: '#fff'
   },
-  title: { margin: '0 0 12px 0', fontSize: 20 },
+  title: { margin: '0 0 8px 0', fontSize: 18 },
   inputRow: { display: 'flex', gap: 8, marginBottom: 10 },
   input: { flex: 1, padding: '8px 10px', fontSize: 14, border: '1px solid #ccc' },
   addButton: { padding: '8px 12px', cursor: 'pointer' },
@@ -175,5 +175,5 @@ const styles = {
   itemButtons: { display: 'flex', gap: 6 },
   smallButton: { padding: '4px 6px', cursor: 'pointer' },
   editInput: { flex: 1, padding: '6px 8px', fontSize: 14, width: '100%' },
-  footer: { marginTop: 14, fontSize: 12, color: '#888' }
+  footer: { marginTop: 10, fontSize: 11, color: '#999' }
 };
